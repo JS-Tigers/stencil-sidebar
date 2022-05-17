@@ -1,0 +1,99 @@
+.mainsidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: brown;
+  width: 25%;
+  height: 100vh;
+  animation: slidein 1s linear forwards;
+}
+
+.headtitle {
+  width: 100%;
+  background-color: black;
+  height: 20vh;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 40px;
+  position: relative;
+}
+
+.togglebtn {
+  background-color: aqua;
+  width: 100%;
+  height: 5vh;
+  display: flex;
+}
+.btn1 {
+  width: 50%;
+  border: none;
+  border-right: 1px solid black;
+}
+
+.btn2 {
+  width: 50%;
+  border: none;
+  border-right: 1px solid black;
+}
+
+.btn1:focus {
+  background-color: rgb(0, 179, 0);
+}
+.btn2:focus {
+  background-color: rgb(0, 179, 0);
+}
+
+.maincontent {
+  background-color: brown;
+  width: 100%;
+  height: 100vh;
+}
+
+.about {
+  width: 90%;
+  /* background-color: aqua; */
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 1rem;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+}
+
+.contact {
+  width: 90%;
+  /* background-color: aqua; */
+
+  margin: 0 auto;
+  margin-top: 1rem;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+}
+
+.contact h4 {
+  padding-left: 1rem;
+}
+
+.closebtn {
+  color: white;
+  position: absolute;
+  top: 0;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  background-color: black;
+  font-size: larger;
+  font-weight: bold;
+}
+
+@keyframes slidein {
+  from {
+    left: -700px;
+  }
+
+  to {
+    left: 0;
+  }
+}

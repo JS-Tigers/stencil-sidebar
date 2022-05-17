@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+    <title>Stencil Component Starter</title>
+
+    <script type="module" src="/build/sidebar.esm.js"></script>
+    <script nomodule src="/build/sidebar.js"></script>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+      }
+
+      .sidebutton {
+        font-size: larger;
+        font-weight: bolder;
+        width: 3%;
+      }
+    </style>
+  </head>
+  <body>
+    <js-sidebar></js-sidebar>
+    <button class="sidebutton">></button>
+    <script>
+      const btn = document.querySelector('button');
+      const custom = document.querySelector('js-sidebar');
+      btn.addEventListener('click', () => {
+        custom.onopenhandler();
+      });
+    </script>
+  </body>
+</html>
