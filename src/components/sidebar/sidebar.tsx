@@ -1,4 +1,4 @@
-import { Component, h, Method, State } from '@stencil/core';
+import { Component, h, Method, Prop, State } from '@stencil/core';
 
 @Component({
   tag: 'js-sidebar',
@@ -9,7 +9,12 @@ export class Sidebar {
   @State() show = true;
   @State() open = false;
 
-  @Method() 
+  @Prop() text: string;
+  @Prop() heading: string;
+  @Prop() address: string;
+  @Prop() phone: string;
+
+  @Method()
   onopenhandler() {
     this.open = !this.open;
   }
@@ -24,26 +29,23 @@ export class Sidebar {
 
   render() {
     let maincontent = null;
-    let sidebar = null;
+    let sidebar = (
+      <button onClick={this.onopenhandler.bind(this)} class="sidebaropen">
+        {'>'}
+      </button>
+    );
     if (this.show) {
-      maincontent = (
-        <div class="about">
-          What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the
-          1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into
-          electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more
-          recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-        </div>
-      );
+      maincontent = <div class="about">{this.text}</div>;
     }
 
     if (!this.show) {
       maincontent = (
         <div class="contact">
-          <h3>Phone:+23145878</h3>
-          <h3>Email:random1456@gmail.com</h3>
-          <h3>"random house"</h3>
-          <h4>random street</h4>
-          <h4>pincode:456788</h4>
+          <div class="infobox">
+            <h2>{this.heading}</h2>
+            <h4>{this.address}</h4>
+            <h4 class="phone">Phone: {this.phone}</h4>
+          </div>
         </div>
       );
     }
@@ -52,15 +54,15 @@ export class Sidebar {
         <div class="mainsidebar">
           <div class="headtitle">
             Main Menu
-            <button class="closebtn" onClick={this.onopenhandler.bind(this)}>
+            <button id='closesidebar' class="closebtn" onClick={this.onopenhandler.bind(this)}>
               x
             </button>
           </div>
           <div class="togglebtn">
-            <button class="btn1" onClick={this.onshowabout.bind(this)}>
+            <button name='about' id='aboutbutton' class="btn1" onClick={this.onshowabout.bind(this)}>
               About
             </button>
-            <button class="btn2" onClick={this.onshowclose.bind(this)}>
+            <button name='contact' id='contactbutton' class="btn1" onClick={this.onshowclose.bind(this)}>
               Contact
             </button>
           </div>
@@ -68,6 +70,6 @@ export class Sidebar {
         </div>
       );
     }
-    return sidebar;
+    return [sidebar];
   }
 }

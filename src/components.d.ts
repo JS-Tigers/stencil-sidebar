@@ -7,7 +7,11 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface JsSidebar {
-        "onopenhandler": () => Promise<void>;
+        "address": string;
+        "heading": string;
+        "onopenhandler": () => void;
+        "phone": string;
+        "text": string;
     }
 }
 declare global {
@@ -23,6 +27,10 @@ declare global {
 }
 declare namespace LocalJSX {
     interface JsSidebar {
+        "address"?: string;
+        "heading"?: string;
+        "phone"?: string;
+        "text"?: string;
     }
     interface IntrinsicElements {
         "js-sidebar": JsSidebar;
